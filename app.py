@@ -115,6 +115,11 @@ if input_source == "Image":
 # VIDEO MODE
 # -----------------------------
 elif input_source == "Video":
+    st.warning(
+        "⚠️ Video processing is may appear slow or frozen unless running app locally"
+        "This is expected in this demo (CPU + Streamlit limitations)."
+    )
+
     uploaded = st.file_uploader("Upload Video", type=["mp4", "avi", "mov"])
 
     if uploaded:
@@ -148,6 +153,8 @@ elif input_source == "Video":
             stats_placeholder.metric("FPS", f"{fps:.2f}")
             stats_placeholder.metric("Frame", frame_count)
             stats_placeholder.metric("Detections", len(result.boxes))
+            
+            time.sleep(0.03)  # 👈 VERY IMPORTANT (simulate ~30 FPS)
 
         cap.release()
         st.success("Video processing complete!")
