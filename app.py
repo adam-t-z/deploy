@@ -12,7 +12,7 @@ from ultralytics import YOLO
 # -----------------------------
 os.environ["YOLO_VERBOSE"] = "False"
 
-st.set_page_config(page_title="YOLO Detector", layout="wide")
+st.set_page_config(page_title="Detector", layout="wide")
 
 # Load config
 with open("config.yaml", "r") as f:
@@ -89,7 +89,7 @@ input_source = st.sidebar.radio("Input Source", ["Image", "Video"])
 confidence = st.sidebar.slider("Confidence Threshold", 0.1, 1.0, 0.5)
 show_conf = st.sidebar.checkbox("Show Confidence", True)
 
-st.title("🎯 YOLO Object Detection App")
+st.title("Object Detection App")
 st.markdown("Upload an image or video to detect objects.")
 
 
